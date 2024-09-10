@@ -11,10 +11,10 @@ namespace Monobank.Client
         {
             _restClient = restClient;
         }
-
+        
         public async Task<CurrencyInfo[]> GetCurrenciesAsync(CancellationToken cancellationToken = default)
         {
-            return await _restClient.GetAsync<CurrencyInfo[]>("bank/currency", cancellationToken);
+            return await _restClient.GetAsync<CurrencyInfo[]>("bank/currency", cancellationToken: cancellationToken);
         }
     }
 }

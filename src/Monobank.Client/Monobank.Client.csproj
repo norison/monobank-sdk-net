@@ -11,6 +11,7 @@
         <Version>0.1.0-preview</Version>
         <PackageProjectUrl>https://github.com/norison/monobank-sdk-net</PackageProjectUrl>
         <PackageTags>monobank client api sdk monobank.ua</PackageTags>
+        <LangVersion>9</LangVersion>
     </PropertyGroup>
     
     <ItemGroup>

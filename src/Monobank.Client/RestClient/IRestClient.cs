@@ -5,7 +5,15 @@ namespace Monobank.Client
 {
     public interface IRestClient
     {
-        Task<T> GetAsync<T>(string url, CancellationToken cancellationToken = default);
-        Task PostAsync<T>(string url, T data, CancellationToken cancellationToken = default);
+        Task<T> GetAsync<T>(
+            string uri,
+            string token = null,
+            CancellationToken cancellationToken = default);
+
+        Task PostAsync<T>(
+            string uri,
+            object body,
+            string token = null,
+            CancellationToken cancellationToken = default);
     }
 }
