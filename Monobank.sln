@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobank.Client", "src\Mono
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobank.Client.UnitTests", "test\Monobank.Client.UnitTests\Monobank.Client.UnitTests.csproj", "{9CB82A81-6B48-4ED5-945E-6C08B5A2DA9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobank.Client.IntegrationTests", "test\Monobank.Client.IntegrationTests\Monobank.Client.IntegrationTests.csproj", "{26AC264E-F0F8-419F-8179-0E9DCD116D0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{9CB82A81-6B48-4ED5-945E-6C08B5A2DA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CB82A81-6B48-4ED5-945E-6C08B5A2DA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CB82A81-6B48-4ED5-945E-6C08B5A2DA9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26AC264E-F0F8-419F-8179-0E9DCD116D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AC264E-F0F8-419F-8179-0E9DCD116D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AC264E-F0F8-419F-8179-0E9DCD116D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AC264E-F0F8-419F-8179-0E9DCD116D0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

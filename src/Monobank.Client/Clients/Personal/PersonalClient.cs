@@ -11,8 +11,8 @@ namespace Monobank.Client
         {
             _restClient = restClient;
         }
-        
-        public async Task<ClientInfo> GetClientInfoAsync(string token, CancellationToken cancellationToken = default)
+
+        public async Task<ClientInfo> GetClientInfoAsync(string token = null, CancellationToken cancellationToken = default)
         {
             return await _restClient.GetAsync<ClientInfo>("personal/client-info", token, cancellationToken);
         }

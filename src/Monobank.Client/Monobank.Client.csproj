@@ -16,6 +16,7 @@
     
     <ItemGroup>
         <InternalsVisibleTo Include="Monobank.Client.UnitTests"/>
+        <InternalsVisibleTo Include="Monobank.Client.IntegrationTests"/>
     </ItemGroup>
 
     <ItemGroup>

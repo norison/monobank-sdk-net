@@ -5,6 +5,6 @@ namespace Monobank.Client
 {
     public interface IPersonalClient
     {
-        Task<ClientInfo> GetClientInfoAsync(string token, CancellationToken cancellationToken = default);
+        Task<ClientInfo> GetClientInfoAsync(string token = null, CancellationToken cancellationToken = default);
     }
 }
