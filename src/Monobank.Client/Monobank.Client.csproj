@@ -3,6 +3,26 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageId>Monobank.Net</PackageId>
+        <Authors>Ihor Matiev</Authors>
+        <Description>A Monobank API dotnet client</Description>
+        <RepositoryUrl>https://github.com/norison/monobank-sdk-net</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>0.1.0-preview</Version>
+        <PackageProjectUrl>https://github.com/norison/monobank-sdk-net</PackageProjectUrl>
+        <PackageTags>monobank client api sdk monobank.ua</PackageTags>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="logo.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>
