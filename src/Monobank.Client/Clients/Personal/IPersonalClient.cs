@@ -10,5 +10,7 @@ namespace Monobank.Client
 
         Task<Statement[]> GetStatementsAsync(string account, DateTime from, DateTime to, string? token = null,
             CancellationToken cancellationToken = default);
+
+        Task SetWebHookAsync(string url, string? token = null, CancellationToken cancellationToken = default);
     }
 }

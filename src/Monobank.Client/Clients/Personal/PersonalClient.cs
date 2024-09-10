@@ -25,5 +25,12 @@ namespace Monobank.Client
             return _restClient.GetAsync<Statement[]>(
                 $"personal/statement/{account}/{from.ToUnixTime()}/{to.ToUnixTime()}", token, cancellationToken);
         }
+
+        public async Task SetWebHookAsync(string url, string? token = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new WebHookRequest { WebHookUrl = url };
+            await _restClient.PostAsync("personal/webhook", request, token, cancellationToken);
+        }
     }
 }

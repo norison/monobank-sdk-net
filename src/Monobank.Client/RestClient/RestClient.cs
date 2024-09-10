@@ -28,7 +28,7 @@ namespace Monobank.Client
             return JsonSerializer.Deserialize<T>(responseString)!;
         }
 
-        public async Task PostAsync<T>(string uri, object body, string? token = null,
+        public async Task PostAsync(string uri, object body, string? token = null,
             CancellationToken cancellationToken = default)
         {
             await SendAsync(uri, HttpMethod.Post, token, body, cancellationToken);

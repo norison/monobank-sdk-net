@@ -56,4 +56,20 @@ public class PersonalClientTests
         result.Should().BeEquivalentTo(statements);
         await _restClient.Received(1).GetAsync<Statement[]>(expectedUrl, token);
     }
+
+    [Fact]
+    public async Task SetWebhookAsync_WhenCalled_ThenSetsWebhook()
+    {
+        // Arrange
+        var url = _fixture.Create<string>();
+        var token = _fixture.Create<string>();
+
+        // Act
+        await _sut.SetWebHookAsync(url, token);
+
+        // Assert
+        await _restClient
+            .Received(1)
+            .PostAsync("personal/webhook", Arg.Is<WebHookRequest>(r => r.WebHookUrl == url), token);
+    }
 }
