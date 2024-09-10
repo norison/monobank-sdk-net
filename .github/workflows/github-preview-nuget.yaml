@@ -9,6 +9,10 @@ jobs:
   pack:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write
+      packages: write
+    
     steps:
       - uses: actions/checkout@v4
 
@@ -18,7 +22,7 @@ jobs:
           dotnet-version: 8.0.x
           source-url: https://nuget.pkg.github.com/norison/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Restore dependencies
         run: dotnet restore
@@ -30,4 +34,4 @@ jobs:
         run: dotnet pack --no-restore --no-build -c Release -p:VersionSuffix=$GITHUB_RUN_NUMBER -o PackOutputs
 
       - name: Publish Nuget package
-        run: dotnet nuget push "PackOutputs/*" -k ${{secrets.GITHUB_TOKEN}}
+        run: dotnet nuget push "PackOutputs/*" -k ${{ secrets.GITHUB_TOKEN }}
