@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
         <PackageIcon>logo.png</PackageIcon>
         <PackageId>Monobank.Net</PackageId>
         <Authors>Ihor Matiev</Authors>

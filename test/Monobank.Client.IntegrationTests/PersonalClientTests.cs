@@ -5,6 +5,7 @@ namespace Monobank.Client.IntegrationTests;
 public class PersonalClientTests
 {
     private const string Token = ""; // Your token here
+    private const string Account = ""; // Your account here
     private readonly IMonobankClient _client = MonobankClientFactory.Create(new ClientOptions { Token = Token });
 
     [Fact]
@@ -26,5 +27,19 @@ public class PersonalClientTests
 
         // Assert
         result.Should().NotBeNull();
+    }
+    
+    [Fact]
+    public async Task GetStatementsAsync_WhenCalled_ThenReturnsStatements()
+    {
+        // Arrange
+        var to = DateTime.Now;
+        var from = to.AddDays(-7);
+
+        // Act
+        var result = await _client.Personal.GetStatementsAsync(Account, from, to);
+
+        // Assert
+        result.Should().NotBeEmpty();
     }
 }

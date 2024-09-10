@@ -12,33 +12,30 @@ namespace Monobank.Client
     public class RestClient : IRestClient
     {
         private readonly ClientOptions _options;
-        private HttpClient _httpClient;
+        private HttpClient? _httpClient;
 
         public RestClient(ClientOptions options)
         {
             _options = options;
         }
 
-        public async Task<T> GetAsync<T>(string uri, string token = null, CancellationToken cancellationToken = default)
+        public async Task<T> GetAsync<T>(string uri, string? token = null,
+            CancellationToken cancellationToken = default)
         {
             var response = await SendAsync(uri, HttpMethod.Get, token, null, cancellationToken);
 
             var responseString = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(responseString);
+            return JsonSerializer.Deserialize<T>(responseString)!;
         }
 
-        public async Task PostAsync<T>(string uri, object body, string token = null,
+        public async Task PostAsync<T>(string uri, object body, string? token = null,
             CancellationToken cancellationToken = default)
         {
             await SendAsync(uri, HttpMethod.Post, token, body, cancellationToken);
         }
 
-        private async Task<HttpResponseMessage> SendAsync(
-            string uri,
-            HttpMethod httpMethod,
-            string token = null,
-            object body = null,
-            CancellationToken cancellationToken = default)
+        private async Task<HttpResponseMessage> SendAsync(string uri, HttpMethod httpMethod, string? token = null,
+            object? body = null, CancellationToken cancellationToken = default)
         {
             EnsureHttpClient();
 
@@ -55,7 +52,7 @@ namespace Monobank.Client
                 httpRequest.Headers.Add("X-Token", token ?? _options.Token);
             }
 
-            var response = await _httpClient.SendAsync(httpRequest, cancellationToken);
+            var response = await _httpClient!.SendAsync(httpRequest, cancellationToken);
 
             if (response.IsSuccessStatusCode)
             {
@@ -63,7 +60,7 @@ namespace Monobank.Client
             }
 
             var responseString = await response.Content.ReadAsStringAsync();
-            var error = JsonSerializer.Deserialize<Error>(responseString);
+            var error = JsonSerializer.Deserialize<Error>(responseString)!;
             throw new MonobankApiException(error.Description);
         }
 

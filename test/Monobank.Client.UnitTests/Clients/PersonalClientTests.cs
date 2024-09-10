@@ -34,4 +34,26 @@ public class PersonalClientTests
         result.Should().BeEquivalentTo(clientInfo);
         await _restClient.Received(1).GetAsync<ClientInfo>("personal/client-info", token);
     }
+
+    [Fact]
+    public async Task GetStatementsAsync_WhenCalled_ThenReturnsStatements()
+    {
+        // Arrange
+        var account = _fixture.Create<string>();
+        var from = _fixture.Create<DateTime>();
+        var to = _fixture.Create<DateTime>();
+        var token = _fixture.Create<string>();
+        var statements = _fixture.CreateMany<Statement>().ToArray();
+
+        var expectedUrl = $"personal/statement/{account}/{from.ToUnixTime()}/{to.ToUnixTime()}";
+
+        _restClient.GetAsync<Statement[]>(expectedUrl, token).Returns(statements);
+
+        // Act
+        var result = await _sut.GetStatementsAsync(account, from, to, token);
+
+        // Assert
+        result.Should().BeEquivalentTo(statements);
+        await _restClient.Received(1).GetAsync<Statement[]>(expectedUrl, token);
+    }
 }

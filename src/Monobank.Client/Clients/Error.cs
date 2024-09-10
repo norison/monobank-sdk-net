@@ -4,6 +4,6 @@ namespace Monobank.Client
 {
     public class Error
     {
-        [JsonPropertyName("errorDescription")] public string Description { get; set; }
+        [JsonPropertyName("errorDescription")] public string Description { get; set; } = string.Empty;
     }
 }
