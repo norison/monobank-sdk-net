@@ -25,4 +25,4 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Test
-        run: dotnet test --filter "FullyQualifiedName=Monobank.Client.UnitTests" --no-build --verbosity normal
+        run: dotnet test --filter "FullyQualifiedName~Monobank.Client.UnitTests" --no-build --verbosity normal
