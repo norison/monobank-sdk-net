@@ -1,7 +1,5 @@
 using FluentAssertions;
 
-using Monobank.Client.Extensions;
-
 namespace Monobank.Client.UnitTests.Extensions
 {
     public class DateTimeExtensionsTests

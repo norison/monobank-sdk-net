@@ -12,6 +12,10 @@
         <PackageProjectUrl>https://github.com/norison/monobank-sdk-net</PackageProjectUrl>
         <PackageTags>monobank client api sdk monobank.ua</PackageTags>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="Monobank.Client.UnitTests"/>
+    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="System.Text.Json" Version="8.0.4" />

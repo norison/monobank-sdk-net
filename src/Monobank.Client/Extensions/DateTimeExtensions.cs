@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Monobank.Client.Extensions
+namespace Monobank.Client
 {
-    public static class DateTimeExtensions
+    internal static class DateTimeExtensions
     {
         public static int ToUnixTime(this DateTime date)
         {
