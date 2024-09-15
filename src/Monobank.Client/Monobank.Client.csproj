@@ -9,7 +9,7 @@
         <Description>A Monobank API dotnet client</Description>
         <RepositoryUrl>https://github.com/norison/monobank-sdk-net</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.1.0-preview</Version>
+        <Version>0.1.1-preview</Version>
         <PackageProjectUrl>https://github.com/norison/monobank-sdk-net</PackageProjectUrl>
         <PackageTags>monobank client api sdk monobank.ua</PackageTags>
         <LangVersion>9</LangVersion>
